@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MedicationinformationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.MedicationinformationEntity" id="medicationinformationMap">
+        <result property="medicationnumber" column="medicationnumber"/>
+        <result property="patientname" column="patientname"/>
+        <result property="gender" column="gender"/>
+        <result property="drugname" column="drugname"/>
+        <result property="quantity" column="quantity"/>
+        <result property="medicationdetails" column="medicationdetails"/>
+        <result property="issuingtime" column="issuingtime"/>
+        <result property="doctoraccountnumber" column="doctoraccountnumber"/>
+        <result property="doctorname" column="doctorname"/>
+        <result property="medicalhealthfield" column="medicalhealthfield"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.MedicationinformationVO" >
+		SELECT * FROM medicationinformation  medicationinformation         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.MedicationinformationVO" >
+		SELECT  medicationinformation.* FROM medicationinformation  medicationinformation
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.MedicationinformationView" >
+
+		SELECT  medicationinformation.* FROM medicationinformation  medicationinformation 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.MedicationinformationView" >
+		SELECT * FROM medicationinformation  medicationinformation <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

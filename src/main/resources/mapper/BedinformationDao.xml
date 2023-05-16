@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BedinformationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BedinformationEntity" id="bedinformationMap">
+        <result property="hospitalbednumber" column="hospitalbednumber"/>
+        <result property="usestatus" column="usestatus"/>
+        <result property="nurseaccountnumber" column="nurseaccountnumber"/>
+        <result property="nursename" column="nursename"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BedinformationVO" >
+		SELECT * FROM bedinformation  bedinformation         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BedinformationVO" >
+		SELECT  bedinformation.* FROM bedinformation  bedinformation
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BedinformationView" >
+
+		SELECT  bedinformation.* FROM bedinformation  bedinformation 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BedinformationView" >
+		SELECT * FROM bedinformation  bedinformation <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

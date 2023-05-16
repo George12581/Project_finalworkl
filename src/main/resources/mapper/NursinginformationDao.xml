@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.NursinginformationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.NursinginformationEntity" id="nursinginformationMap">
+        <result property="hospitalizationnumber" column="hospitalizationnumber"/>
+        <result property="patientname" column="patientname"/>
+        <result property="gender" column="gender"/>
+        <result property="age" column="age"/>
+        <result property="doctoraccountnumber" column="doctoraccountnumber"/>
+        <result property="doctorname" column="doctorname"/>
+        <result property="nursingcontent" column="nursingcontent"/>
+        <result property="nursingtime" column="nursingtime"/>
+        <result property="nurseaccountnumber" column="nurseaccountnumber"/>
+        <result property="nursename" column="nursename"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.NursinginformationVO" >
+		SELECT * FROM nursinginformation  nursinginformation         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.NursinginformationVO" >
+		SELECT  nursinginformation.* FROM nursinginformation  nursinginformation
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.NursinginformationView" >
+
+		SELECT  nursinginformation.* FROM nursinginformation  nursinginformation 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.NursinginformationView" >
+		SELECT * FROM nursinginformation  nursinginformation <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.DischargeinformationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.DischargeinformationEntity" id="dischargeinformationMap">
+        <result property="hospitalizationnumber" column="hospitalizationnumber"/>
+        <result property="gender" column="gender"/>
+        <result property="patientname" column="patientname"/>
+        <result property="age" column="age"/>
+        <result property="hospitalizationdate" column="hospitalizationdate"/>
+        <result property="dischargerecord" column="dischargerecord"/>
+        <result property="dischargetime" column="dischargetime"/>
+        <result property="hospitalbednumber" column="hospitalbednumber"/>
+        <result property="nurseaccountnumber" column="nurseaccountnumber"/>
+        <result property="nursename" column="nursename"/>
+        <result property="doctoraccountnumber" column="doctoraccountnumber"/>
+        <result property="doctorname" column="doctorname"/>
+        <result property="medicalhealthfield" column="medicalhealthfield"/>
+        <result property="crossuserid" column="crossuserid"/>
+        <result property="crossrefid" column="crossrefid"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.DischargeinformationVO" >
+		SELECT * FROM dischargeinformation  dischargeinformation         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.DischargeinformationVO" >
+		SELECT  dischargeinformation.* FROM dischargeinformation  dischargeinformation
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.DischargeinformationView" >
+
+		SELECT  dischargeinformation.* FROM dischargeinformation  dischargeinformation 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.DischargeinformationView" >
+		SELECT * FROM dischargeinformation  dischargeinformation <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

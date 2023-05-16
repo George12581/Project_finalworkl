@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.DruginformationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.DruginformationEntity" id="druginformationMap">
+        <result property="drugname" column="drugname"/>
+        <result property="drugimage" column="drugimage"/>
+        <result property="warrantyperiod" column="warrantyperiod"/>
+        <result property="dosageform" column="dosageform"/>
+        <result property="drugdescription" column="drugdescription"/>
+        <result property="manufacturer" column="manufacturer"/>
+        <result property="specification" column="specification"/>
+        <result property="quantity" column="quantity"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.DruginformationVO" >
+		SELECT * FROM druginformation  druginformation         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.DruginformationVO" >
+		SELECT  druginformation.* FROM druginformation  druginformation
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.DruginformationView" >
+
+		SELECT  druginformation.* FROM druginformation  druginformation 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.DruginformationView" >
+		SELECT * FROM druginformation  druginformation <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
